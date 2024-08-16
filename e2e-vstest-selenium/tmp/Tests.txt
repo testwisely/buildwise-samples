@@ -1,0 +1,4 @@
+e2e_vstest_selenium.FlightTest.TestReturnTrip
+e2e_vstest_selenium.FlightTest.TestOnewayTrip
+e2e_vstest_selenium.LoginTest.TestLoginOK
+e2e_vstest_selenium.LoginTest.TestLoginFailed

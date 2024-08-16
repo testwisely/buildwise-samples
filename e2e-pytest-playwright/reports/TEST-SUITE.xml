@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="21.571" timestamp="2023-10-09T08:59:14.793240" hostname="iMac-Study.local"><testcase classname="tests.flight_test" name="test_oneway_flight[chromium]" time="5.063" /><testcase classname="tests.flight_test" name="test_return_flight[chromium]" time="2.332" /><testcase classname="tests.login_test" name="test_sign_in_failed[chromium]" time="0.709" /><testcase classname="tests.login_test" name="test_sign_in_ok[chromium]" time="0.923" /><testcase classname="tests.passenger_test" name="test_enter_passenger_details[chromium]" time="1.054"><failure message="AssertionError: assert 'Wendy Tester' == 'Bob Tester'&#10;  - Bob Tester&#10;  + Wendy Tester">page = &lt;Page url='https://travel.agileway.net/flights/passenger'&gt;
+
+    def test_enter_passenger_details(page: Page):
+        passenger_page = PassengerPage(page)
+        passenger_page.enter_first_name("Bob")
+        passenger_page.enter_last_name("Tester")
+        passenger_page.click_next()
+    
+        # purposely assertion failure, if set
+        holder_name = page.locator("//input[@name='holder_name']").get_attribute("value")
+&gt;       assert "Wendy Tester" ==  holder_name
+E       AssertionError: assert 'Wendy Tester' == 'Bob Tester'
+E         - Bob Tester
+E         + Wendy Tester
+
+tests/passenger_test.py:47: AssertionError</failure></testcase><testcase classname="tests.payment_test" name="test_payment[chromium]" time="11.343" /></testsuite></testsuites>

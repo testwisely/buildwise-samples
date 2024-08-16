@@ -1,0 +1,27 @@
+<workspace>
+    <opened_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/flight_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/login_repeat_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/payment_ajax_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/login_repeat_page_object_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/login_raw_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load_test_helper.rb"/>
+    </opened_files>
+    <recent_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load_test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/login_raw_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/login_repeat_page_object_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/payment_ajax_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/login_repeat_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/flight_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/Rakefile"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/flight_page_object_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/spec/03_passenger_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/spec/02_flight_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/spec/01_login_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/load/spec_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/load-rspec-selenium/pages/login_page.rb"/>
+    </recent_files>
+    <test_suites/>
+</workspace>

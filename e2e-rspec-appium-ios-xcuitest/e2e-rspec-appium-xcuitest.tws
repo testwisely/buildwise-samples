@@ -1,0 +1,29 @@
+<workspace>
+    <opened_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/simulator_convert_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/Rakefile"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/buildwise.rake"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/apps/iCurrency.app.zip"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/simulator_convert_pom_spec.rb"/>
+    </opened_files>
+    <recent_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/simulator_convert_pom_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/apps/iCurrency.app.zip"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/buildwise.rake"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/agileway_utils.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/buildwise_rspec_formatter.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/e2e-rspec-appium-xcuitest.tpr"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/Rakefile"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/simulator_convert_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/simulator_launch_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/spec_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/device_convert_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/pages/abstract_page.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/01_connect_simulator_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/02_connect_iphone_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-appium-xcuitest/spec/03_drive_base_controls_spec.rb"/>
+    </recent_files>
+    <test_suites/>
+</workspace>

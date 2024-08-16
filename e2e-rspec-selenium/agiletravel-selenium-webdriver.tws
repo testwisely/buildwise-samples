@@ -1,0 +1,23 @@
+<workspace>
+    <opened_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/flight_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/passenger_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/login_refactored_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/login_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/payment_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/pages/flight_page.rb"/>
+    </opened_files>
+    <recent_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/pages/flight_page.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/payment_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/login_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/login_refactored_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/passenger_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/flight_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/agileway_utils.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/debugging_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-rspec-selenium/spec/spec_helper.rb"/>
+    </recent_files>
+    <test_suites/>
+</workspace>

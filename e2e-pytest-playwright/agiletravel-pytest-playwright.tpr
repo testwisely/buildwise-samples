@@ -1,0 +1,59 @@
+<project>
+    <name>agiletravel-selenium-webdriver.tpr</name>
+    <app_type>WinApp</app_type>
+    <default_browser>Chrome</default_browser>
+    <test_framework>Selenium</test_framework>
+    <syntax_framework>PyTest</syntax_framework>
+    <environments>
+        <entry name="development" default="false">
+            <base_url>http://agiletravel.herokuapp.com</base_url>
+        </entry>
+        <entry name="test" default="false">
+            <base_url>http://test.agiletravel.macmini</base_url>
+        </entry>
+        <entry name="production" default="true">
+            <base_url>https://travel.agileway.net</base_url>
+        </entry>
+        <entry name="ci1" default="false">
+            <base_url>http://ci1.agiletravel.dev</base_url>
+        </entry>
+        <entry name="ci2" default="false">
+            <base_url>http://ci2.agiletravel.dev</base_url>
+        </entry>
+    </environments>
+    <exclude_dirs></exclude_dirs>
+    <exclude_files>features/tmp_syntax_check.feature</exclude_files>
+    <spec_template>import xmlrunner
+import time
+import datetime
+import sys
+import os
+import re
+from playwright.sync_api import Page, expect
+import pytest
+
+
+# load modules from parent dir, pages will be referred from there too.
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
+from test_helper import TestHelper
+# from pages.login_page import LoginPage
+
+@pytest.fixture(autouse=True)
+def run_round_test(page: Page):
+    page.goto(TestHelper.site_url())
+    yield    
+    page.close
+
+def test_{{ test case }}(page: Page):
+    pass
+
+</spec_template>
+    <page_template>from abstract_page import AbstractPage
+
+class {{ PAGE_NAME }}(AbstractPage):
+  
+  # define your page methods here ...</page_template>
+    <integration>
+        <jira url="" username="" password=""/>
+    </integration>
+</project>

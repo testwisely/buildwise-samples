@@ -1,0 +1,64 @@
+<workspace>
+    <opened_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/spec/01_soap_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/spec/02_rest_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/buildwise.rake"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/Rakefile"/>
+    </opened_files>
+    <recent_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/Rakefile"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/pages/sign_up_page.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/pages/customer_login_page.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/spec/tmp.json"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/buildwise.rake"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/test_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/mail_catcher_helper.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/testwise_support.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/spec/02_rest_spec.rb"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/api-rspec/spec/01_soap_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch03_rest_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/tmp.json"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch10_mailcatcher_helper_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch08_generate_data_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch02_soap_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch02_http_via_proxy_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch07_database_activerecord_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch07_database_pg_sqlserver_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch01_intro_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch06_download_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch07_database_raw_sql_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch05_email_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch09_html_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch08_generate_simple_data_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/misc_sftp_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/test_report.html"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/selected_scripts_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch10_combination_data_driven_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch05_email_with_mail_catcher_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch04_parse_response_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch07_database_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/mail_catcher_helper.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch10_mailcatcher_api_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/ch10_combination_email_mailcatcher_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/http_file_upload_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/spec/fetch_json_spec.rb"/>
+        <entry name="/Users/zhimin/work/books/APITestingRecipes-Ruby/recipes/Rakefile"/>
+        <entry name="$PROJECT_DIR$/spec/ch06_download_spec.rb"/>
+        <entry name="$PROJECT_DIR$/spec/ch05_email_spec.rb"/>
+        <entry name="$PROJECT_DIR$/spec/ch10_combination_email_mailcatcher_spec.rb"/>
+        <entry name="$PROJECT_DIR$/spec/ch10_combination_data_driven_spec.rb"/>
+        <entry name="$PROJECT_DIR$/spec/ch04_parse_response_spec.rb"/>
+        <entry name="$PROJECT_DIR$/spec/ch09_html_spec.rb"/>
+        <entry name="$PROJECT_DIR$/spec/selected_scripts_spec.rb"/>
+        <entry name="$PROJECT_DIR$/mail_catcher_helper.rb"/>
+        <entry name="$PROJECT_DIR$/spec/fetch_json_spec.rb"/>
+        <entry name="$PROJECT_DIR$/pages/sign_up_page.rb"/>
+        <entry name="$PROJECT_DIR$/pages/customer_login_page.rb"/>
+        <entry name="$PROJECT_DIR$/pages/abstract_page.rb"/>
+        <entry name="$PROJECT_DIR$/pages/customer_login_page.erb"/>
+        <entry name="$PROJECT_DIR$/spec/mail_catcher_helper.rb"/>
+        <entry name="$PROJECT_DIR$/spec/ch08_generate_data_spec.rb"/>
+    </recent_files>
+    <test_suites/>
+</workspace>

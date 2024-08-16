@@ -1,0 +1,18 @@
+<workspace>
+    <opened_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/tests/login.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/alternatives/login_one_browser.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/alternatives/login_new_browser_each_test.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/tests/login_refactored.spec.ts"/>
+    </opened_files>
+    <recent_files>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/tests/login_refactored.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/alternatives/login_new_browser_each_test.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/alternatives/login_one_browser.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/tests/login.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/test-results/login-Sign-in-OK/trace.zip"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/tests/login_one_browser.spec.ts"/>
+        <entry name="/Users/zhimin/work/projects/buildwise-samples/e2e-playwright-test/tests/login_new_browser_each_test.spec.ts"/>
+    </recent_files>
+    <test_suites/>
+</workspace>
