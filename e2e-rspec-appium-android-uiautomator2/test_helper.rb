@@ -32,14 +32,20 @@ module TestHelper
   
   def appium_opts
     app_file = File.join(File.dirname(__FILE__), "app", "calculator-fdroid-release.apk")
-
+    
+    # matching your emulator's system version
+    platform_version = ENV["ANDROID_PLATFORM_VERSION"] || "15"
+    
+    # matching your emulator name, by running 'adb devices'
+    device_name = ENV["ANDROID_DEVICE_NAME"] || "emulator-5554"
+    
     opts = {
       caps: {
         automationName: 'UiAutomator2',
         platformName: 'Android',
         platform: 'Android',
-        platformVersion: '15',        # matching your emulator's system version
-        deviceName: 'emulator-5554',  # matching your emulator name  
+        platformVersion: platform_version,      
+        deviceName: device_name,  
         app: app_file,
         appPackage: 'com.simplemobiletools.calculator',
         appActivity: 'com.simplemobiletools.calculator.activities.SplashActivity.Orange'
