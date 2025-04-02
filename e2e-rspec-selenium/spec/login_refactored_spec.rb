@@ -27,7 +27,7 @@ describe "User Login" do
     login("agileway", "testwise")
     sleep 0.1
     expect(driver.find_element(:id, "flash_notice").text).to eq("Signed in!")
-    driver.find_element(:link_text, "Sign off").click
+    driver.find_element(:link_text, "Sign off (agileway)").click
   end
 
   it "[1] User failed to sign in due to invalid password", :tag => "showcase" do    

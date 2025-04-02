@@ -31,7 +31,7 @@ describe "User Login" do
     sleep 0.1
     # selenium does not have browser.text yet
     expect(driver.page_source).to include("Signed in!")
-    driver.find_element(:link_text, "Sign off").click
+    driver.find_element(:link_text, "Sign off (agileway)").click
     puts "[stdout] Signed out"
   end
 
