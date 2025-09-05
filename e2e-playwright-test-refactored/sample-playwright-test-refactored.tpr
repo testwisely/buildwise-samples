@@ -44,7 +44,7 @@ test.beforeEach(async () =&gt; {
 
 test('{{ TEST_CASE }}', async () =&gt; {
   // 
-  // await helper.login(page, "agileway", "testwise")
+  // await helper.login(page, "agileway", "test$W1se")
   // await page.locator("text=Sign off").click();
   // const flashText = await page.textContent("#flash_notice")
   // console.log(flashText);

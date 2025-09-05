@@ -28,7 +28,7 @@ test.afterEach(async () => {
 
 test('Login OK', async ({ page }) => {
   await page.fill("#username", "agileway");
-  await page.fill("#password", "testwise");
+  await page.fill("#password", "test$W1se");
   await page.click("input:has-text('Sign in')");
   const flashText = await page.textContent("#flash_notice")
   console.log(flashText);
@@ -40,7 +40,7 @@ test('Login OK', async ({ page }) => {
 
 test('Login Failed', async ({ page }) => {
   await page.fill("#username", "agileway");
-  await page.fill("#password", "testwise");
+  await page.fill("#password", "test$W1se");
   await page.click("input:has-text('Sign in')");
   const element = await page.getByText("Invalid email or password")
   await expect(element !== undefined ).toBeTruthy();

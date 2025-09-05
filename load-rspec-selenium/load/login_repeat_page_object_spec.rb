@@ -26,7 +26,7 @@ describe "User Login Repeat with Page Objecgt" do
 
       login_page = LoginPage.new(driver)
       login_page.enter_username("agileway")
-      login_page.enter_password("testwise")
+      login_page.enter_password("test$W1se")
 
       log_time("Sign in") {
         login_page.click_sign_in

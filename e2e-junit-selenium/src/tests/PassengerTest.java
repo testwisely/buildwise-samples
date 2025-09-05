@@ -19,7 +19,7 @@ public class PassengerTest {
         
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername("agileway");
-        loginPage.enterPassword("testwise");
+        loginPage.enterPassword("test$W1se");
         loginPage.clickSignIn();
 
         FlightPage flightPage = new FlightPage(driver);

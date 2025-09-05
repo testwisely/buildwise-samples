@@ -29,7 +29,7 @@ test.beforeEach(async () => {
 
 test('Sign in OK', async () => {
   await page.fill("#username", "agileway");
-  await page.fill("#password", "testwise");
+  await page.fill("#password", "test$W1se");
   await page.click("input:has-text('Sign in')");
   const flashText = await page.textContent("#flash_notice")
   console.log(flashText);

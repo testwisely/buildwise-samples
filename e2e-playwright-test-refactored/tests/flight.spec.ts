@@ -19,7 +19,7 @@ test.beforeAll(async ({ browser }) => {
   // Create page once.
   page = await browser.newPage();
   await page.goto(helper.site_url());
-  await helper.login(page, "agileway", "testwise")
+  await helper.login(page, "agileway", "test$W1se")
 });
 
 test.afterAll(async () => {

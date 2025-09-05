@@ -33,7 +33,7 @@ public class LoginTest
     public void TestLoginOK()
     {
         driver.FindElement(By.Name("username")).SendKeys("agileway");
-        driver.FindElement(By.Name("password")).SendKeys("testwise");
+        driver.FindElement(By.Name("password")).SendKeys("test$W1se");
         driver.FindElement(By.Name("password")).Submit();
         Assert.IsTrue(driver.PageSource.Contains("Signed in!"));
     }

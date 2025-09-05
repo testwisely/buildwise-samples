@@ -20,7 +20,7 @@ test.beforeAll(async ({ browser }) => {
   // Create page once.
   page = await browser.newPage();
   await page.goto(helper.site_url());
-  await helper.login(page, "agileway", "testwise")
+  await helper.login(page, "agileway", "test$W1se")
   
   let flight_page = new FlightPage(page);
   await flight_page.selectTripType("oneway")

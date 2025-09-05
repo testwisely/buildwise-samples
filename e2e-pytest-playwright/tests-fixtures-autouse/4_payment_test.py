@@ -28,7 +28,7 @@ class PaymentTestCase(unittest.TestCase, TestHelper):
     # cls.driver.get(cls.site_url())
     # login_page = LoginPage(cls.driver)
     # login_page.enter_username("agileway")
-    # login_page.enter_password("testwise")
+    # login_page.enter_password("test$W1se")
     # login_page.click_sign_in()
     print("cls setup is not good yet")
 
@@ -42,7 +42,7 @@ class PaymentTestCase(unittest.TestCase, TestHelper):
     self.driver.goto(self.site_url())
     login_page = LoginPage(self.driver)
     login_page.enter_username("agileway")
-    login_page.enter_password("testwise")
+    login_page.enter_password("test$W1se")
     login_page.click_sign_in()
 
     flight_page = FlightPage(self.driver)

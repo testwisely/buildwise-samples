@@ -26,7 +26,7 @@ describe "User Login" do
   it "[1] Can sign in OK" do
     visit("/login")
     driver.find_element(:id, "username").send_keys("agileway")
-    driver.find_element(:id, "password").send_keys("testwise")
+    driver.find_element(:id, "password").send_keys("test$W1se")
     driver.find_element(:name, "commit").click
     sleep 0.1
     # selenium does not have browser.text yet

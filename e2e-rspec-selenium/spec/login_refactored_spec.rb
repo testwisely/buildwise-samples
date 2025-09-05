@@ -24,7 +24,7 @@ describe "User Login" do
   end
 
   it "[1] Can sign in OK" do
-    login("agileway", "testwise")
+    login("agileway", "test$W1se")
     sleep 0.1
     expect(driver.find_element(:id, "flash_notice").text).to eq("Signed in!")
     driver.find_element(:link_text, "Sign off (agileway)").click

@@ -56,7 +56,7 @@ describe('User Authentication', function() {
   it('User can login successfully', async function() {
     this.timeout(timeOut);
     await driver.findElement(webdriver.By.name('username')).sendKeys('agileway');
-    await driver.findElement(webdriver.By.name('password')).sendKeys('testwise');
+    await driver.findElement(webdriver.By.name('password')).sendKeys('test$W1se');
     await driver.findElement(webdriver.By.name('commit')).click();
     await driver.getPageSource().then(function(page_source) {
       assert(page_source.contains("Welcome"))

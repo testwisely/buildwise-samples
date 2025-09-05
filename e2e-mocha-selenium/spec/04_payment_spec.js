@@ -35,7 +35,7 @@ describe('Payment', function() {
   beforeEach(async function() {
     this.timeout(timeOut);
     await driver.get(helper.site_url());
-    await helper.login(driver, "agileway", "testwise");
+    await helper.login(driver, "agileway", "test$W1se");
     
     let flight_page = new FlightPage(driver);
     await flight_page.selectTripType("oneway")

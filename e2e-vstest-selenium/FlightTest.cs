@@ -15,7 +15,7 @@ public class FlightTest
         driver.Manage().Window.Position = new System.Drawing.Point(30, 78);
         driver.Navigate().GoToUrl("http://travel.agileway.net");
         driver.FindElement(By.Name("username")).SendKeys("agileway");
-        driver.FindElement(By.Name("password")).SendKeys("testwise");
+        driver.FindElement(By.Name("password")).SendKeys("test$W1se");
         driver.FindElement(By.Name("password")).Submit();
     }
 

@@ -19,7 +19,7 @@ def run_round_test(page: Page):
     page.goto(TestHelper.site_url())
     login_page = LoginPage(page)
     login_page.enter_username("agileway")
-    login_page.enter_password("testwise")
+    login_page.enter_password("test$W1se")
     login_page.click_sign_in()
     
     yield

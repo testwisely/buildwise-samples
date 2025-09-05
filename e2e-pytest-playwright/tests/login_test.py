@@ -34,7 +34,7 @@ def test_sign_in_failed(page: Page):
 def test_sign_in_ok(page: Page):
     login_page = LoginPage(page)
     login_page.enter_username("agileway")
-    login_page.enter_password("testwise")
+    login_page.enter_password("test$W1se")
     login_page.click_sign_in()
     assert page.text_content("div#flash_notice") == "Signed in!"
 

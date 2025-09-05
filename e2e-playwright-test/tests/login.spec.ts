@@ -23,7 +23,7 @@ test.beforeEach(async () => {
 
 test('Sign in OK', async () => {
   await driver.fill("#username", "agileway");
-  await driver.fill("#password", "testwise");
+  await driver.fill("#password", "test$W1se");
   await driver.click("input:has-text('Sign in')");
   const flashText = await driver.textContent("#flash_notice")
   console.log(flashText);

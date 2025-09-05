@@ -11,7 +11,7 @@ Feature: User Authentication
   
   Scenario: Registered user can log in sucessfully
     Given I am on the home page
-    When enter user name "agileway" and password "testwise"
+    When enter user name "agileway" and password "test$W1se"
     And click "Sign in" button
     Then I am logged in
   

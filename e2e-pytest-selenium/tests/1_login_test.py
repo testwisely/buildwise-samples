@@ -51,7 +51,7 @@ class LoginTestCase(unittest.TestCase, TestHelper):
     # ...
     login_page = LoginPage(self.driver)
     login_page.enter_username("agileway")
-    login_page.enter_password("testwise")
+    login_page.enter_password("test$W1se")
     login_page.click_sign_in()
 
 # if __name__ == '__main__':
