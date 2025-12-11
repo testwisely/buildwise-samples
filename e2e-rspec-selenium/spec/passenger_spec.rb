@@ -32,7 +32,7 @@ describe "Passenger" do
 
     # now on passenger page
     passenger_page = PassengerPage.new(driver)
-    passenger_page.click_next
+    try_for(2) { passenger_page.click_next }
     expect(page_text).to include("Must provide last name")
     passenger_page.enter_first_name("Bob")
     passenger_page.enter_last_name("Tester")
