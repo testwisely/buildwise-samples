@@ -67,8 +67,10 @@ module TestHelper
         # reference:   https://www.selenium.dev/blog/2023/headless-is-going-away/
         the_chrome_options.add_argument("--headless=new")
       end
-
-      if defined?(TestWiseRuntimeSupport)
+      
+      puts("Check browser options ....")
+      if $CHROME_NEW_INSTANCE || defined?(TestWiseRuntimeSupport)
+        puts("XXXX")
         browser_debugging_port = get_browser_debugging_port() rescue 19218 # default port
         puts("Enabled chrome browser debug port: #{browser_debugging_port}")
         File.open(file_path("chrome-debugging-port.txt"), "w").puts(browser_debugging_port.to_s)

@@ -42,6 +42,12 @@ def specs_for_quick_build
   ]
 end
 
+desc "start the browser"
+RSpec::Core::RakeTask.new("ui_tests:start") do |t|  
+  buildwise_formatter =  File.join(File.dirname(__FILE__), "buildwise_rspec_formatter.rb")
+  t.rspec_opts = "--pattern my_own_custom_order --require #{buildwise_formatter} spec/0_start_the_browser_spec.rb --order defined"
+end
+
 
 desc "run tests in this spec/ folder, option to use INTELLIGENT_ORDERING or/and DYNAMIC_FEEDBACK"
 RSpec::Core::RakeTask.new("ui_tests:quick") do |t|  
@@ -57,6 +63,7 @@ task "ci:ui_tests:quick" => ["ci:setup:rspec"] do
   puts "[Rake] new build id =>|#{build_id}|"
   buildwise_run_sequential_build_target(build_id, "ui_tests:quick")
 end
+
 
 
 ## Full Build

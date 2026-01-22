@@ -3,7 +3,8 @@ load File.dirname(__FILE__) + '/../test_helper.rb'
 describe "Start the browser" do
   include TestHelper
 
-  before(:all) do    
+  before(:all) do
+    $CHROME_NEW_INSTANCE = true # start a new browser 
     @driver = $driver = Selenium::WebDriver.for(browser_type, browser_options)
     @driver.get(site_url)
   end
