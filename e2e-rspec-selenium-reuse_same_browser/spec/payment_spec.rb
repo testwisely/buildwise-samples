@@ -1,0 +1,48 @@
+load File.dirname(__FILE__) + '/../test_helper.rb'
+
+describe "Payment" do
+  include TestHelper
+
+  before(:all) do
+    use_current_browser
+    
+    driver.get(site_url)
+    fail_safe{ visit("/sign_out")  }
+    
+    login_page = LoginPage.new(driver)
+    login_page.login("agileway", "test$W1se")
+  end
+
+  after(:all) do
+  end
+
+  it "[5] Book flight with payment", :tag => "showcase" do
+    
+    flight_page = FlightPage.new(driver)
+    try_for(2) { flight_page.select_trip_type("oneway") }
+    flight_page.select_depart_from("Sydney")
+    flight_page.select_arrive_at("New York")
+
+    flight_page.select_depart_day("02")
+    flight_page.select_depart_month("May 2027")
+    flight_page.click_continue
+
+    # now on passenger page
+    passenger_page = PassengerPage.new(driver)
+    try_for(2) { passenger_page.enter_last_name("Tester") }
+    passenger_page.click_next
+
+    payment_page = PaymentPage.new(driver)
+    payment_page.select_card_type("master")
+    payment_page.enter_holder_name("Bob the Tester")
+    payment_page.enter_card_number("4242424242424242")
+    payment_page.enter_expiry_month("04")
+    payment_page.enter_expiry_year("2026")
+    payment_page.click_pay_now
+    try_for(10) { expect(driver.page_source).to include("Booking number")}
+    puts("booking number: " + driver.find_element(:id, 'booking_number').text)
+  end
+
+end
+
+
