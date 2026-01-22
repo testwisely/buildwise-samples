@@ -44,7 +44,7 @@ end
 
 desc "start the browser"
 RSpec::Core::RakeTask.new("ui_tests:start") do |t|  
-  specs_to_be_executed = buildwise_determine_specs_for_quick_build(["../e2e-rspec-selenium-reuse_same_browser/spec/0_start_the_browser_spec.rb"], excluded_spec_files, $test_dir);
+  specs_to_be_executed = buildwise_determine_specs_for_quick_build(["e2e-rspec-selenium-reuse_same_browser/spec/0_start_the_browser_spec.rb"], excluded_spec_files, $test_dir);
   buildwise_formatter =  File.join(File.dirname(__FILE__), "buildwise_rspec_formatter.rb")
   t.rspec_opts = "--pattern my_own_custom_order --require #{buildwise_formatter} ../e2e-rspec-selenium-reuse_same_browser/spec/0_start_the_browser_spec.rb --order defined"
 end
