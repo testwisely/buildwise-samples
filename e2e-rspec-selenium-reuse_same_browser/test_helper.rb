@@ -71,7 +71,7 @@ module TestHelper
       puts("Check browser options ....")
       if $CHROME_NEW_INSTANCE || defined?(TestWiseRuntimeSupport)
         puts("XXXX")
-        browser_debugging_port = get_browser_debugging_port() rescue 19218 # default port
+        browser_debugging_port = get_browser_debugging_port() # default port
         puts("Enabled chrome browser debug port: #{browser_debugging_port}")
         File.open(file_path("chrome-debugging-port.txt"), "w").puts(browser_debugging_port.to_s)
         the_chrome_options.add_argument("--remote-debugging-port=#{browser_debugging_port}")
@@ -115,7 +115,7 @@ module TestHelper
       end
 
       if defined?(TestWiseRuntimeSupport)
-        browser_debugging_port = get_browser_debugging_port() rescue 19218 # default port
+        browser_debugging_port = get_browser_debugging_port() # rescue 19218 # default port
         puts("Enabled edge browser debug port: #{browser_debugging_port}")
         the_edge_options.add_argument("--remote-debugging-port=#{browser_debugging_port}")
       else
@@ -157,7 +157,7 @@ module TestHelper
   def file_path(file_name)
     return "#{File.dirname(__FILE__)}/#{file_name}"
   end
-  
+
   
   ## 
   #  Highlight a web control on a web page,currently only support 'background_color'

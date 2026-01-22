@@ -2,7 +2,9 @@
 # ver 1.2 compatiable with Selenium v4.11
 #   the_chrome_options.debugger_address = "127.0.0.1:#{browser_debugging_port}"
 #   the_edge_options.debugger_address = "127.0.0.1:#{browser_debugging_port}"
- 
+
+# v1.3
+#    add reuse chrome browser debugging port (now randomly set, not more default 19218)
 
 module AgilewayUtils
 
@@ -41,8 +43,8 @@ module AgilewayUtils
           puts("[DEBUG] use debugging port set in environment variable")
           browser_debugging_port = port_set_in_env_var
         else
-          puts("[DEBUG] use default port ")
-          browser_debugging_port = 19218
+          puts("[DEBUG] use default port, random")
+          browser_debugging_port = get_browser_debugging_port()
         end
         puts(" => #{browser_debugging_port}")
 
@@ -81,8 +83,8 @@ module AgilewayUtils
           browser_debugging_port = File.read(file_path("chrome-debugging-port.txt")).strip
           puts("[DEBUG] => #{browser_debugging_port}")
         else
-          puts("[DEBUG] use default port ")
-          browser_debugging_port = 19218
+          puts("[DEBUG] use default port, random ")
+          browser_debugging_port = get_browser_debugging_port()
         end
         puts(" => #{browser_debugging_port}")
       
@@ -104,7 +106,11 @@ module AgilewayUtils
       end
     end
   end
-
+  
+  def get_browser_debugging_port
+    rand(10001..19999)
+  end
+  
   # for Appium testing, attach to destktop session, return @driver instance variable
   def use_destkop_session
     # the desktop_session_caps function shall be defined in test_helper.rb
@@ -485,4 +491,6 @@ module AgilewayUtils
     connect_to_testwise("CSV_END", "") if $testwise_support
     raise "Test failed on data" if has_error
   end
+  
+  
 end
