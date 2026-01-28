@@ -41,7 +41,9 @@ describe "Payment" do
     payment_page.enter_expiry_year("2026")
     payment_page.click_pay_now
     try_for(10) { expect(driver.page_source).to include("Booking number")}
-    puts("booking number: " + driver.find_element(:id, 'booking_number').text)
+    booking_number =  driver.find_element(:id, 'booking_number').text
+    puts("booking number: " + booking_number)
+    File.open( File.dirname(__FILE__) + "/../archive/booking_number.txt", "w").write(booking_number)    
   end
 
 end
