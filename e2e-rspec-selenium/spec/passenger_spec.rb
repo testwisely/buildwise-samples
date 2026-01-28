@@ -25,9 +25,9 @@ describe "Passenger" do
     flight_page.select_arrive_at("New York")
 
     flight_page.select_depart_day("02")
-    flight_page.select_depart_month("May 2025")
+    flight_page.select_depart_month("May 2027")
     flight_page.select_return_day("04")
-    flight_page.select_return_month("June 2025")
+    flight_page.select_return_month("June 2027")
     flight_page.click_continue
 
     # now on passenger page

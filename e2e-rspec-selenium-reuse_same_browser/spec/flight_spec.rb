@@ -1,21 +1,21 @@
-load File.dirname(__FILE__) + '/../test_helper.rb'
+load File.dirname(__FILE__) + "/../test_helper.rb"
 
 describe "Select Flights" do
   include TestHelper
 
   before(:all) do
     use_current_browser
-    
+
     driver.get(site_url)
-    fail_safe{ visit("/sign_out")  }
-    
-        login_page = LoginPage.new(driver)
+    fail_safe { visit("/sign_out") }
+
+    login_page = LoginPage.new(driver)
     login_page.login("agileway", "test$W1se")
   end
 
   after(:all) do
   end
-  
+
   before(:each) do
     visit("/")
     sleep 1 # for some webdriver verson, it might not wait page loaded
@@ -49,6 +49,4 @@ describe "Select Flights" do
 
     try_for(2) { expect(page_text).to include("2027-05-02 Sydney to New York") }
   end
-
-
 end

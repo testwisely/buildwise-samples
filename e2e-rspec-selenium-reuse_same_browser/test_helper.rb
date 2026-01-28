@@ -70,7 +70,6 @@ module TestHelper
       
       puts("Check browser options ....")
       if $CHROME_NEW_INSTANCE || defined?(TestWiseRuntimeSupport)
-        puts("XXXX")
         browser_debugging_port = get_browser_debugging_port() # default port
         puts("Enabled chrome browser debug port: #{browser_debugging_port}")
         File.open(file_path("chrome-debugging-port.txt"), "w").puts(browser_debugging_port.to_s)
@@ -152,10 +151,6 @@ module TestHelper
 
   def debugging?
     return ENV["RUN_IN_TESTWISE"].to_s == "true" && ENV["TESTWISE_RUNNING_AS"] == "test_case"
-  end
-  
-  def file_path(file_name)
-    return "#{File.dirname(__FILE__)}/#{file_name}"
   end
 
   
