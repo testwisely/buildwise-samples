@@ -29,5 +29,5 @@ Then('I am logged in') do
 end
 
 Then('I sign off') do
-  driver.find_element(:link_text, "Sign off").click
+  driver.find_element(:partial_link_text, "Sign off").click
 end
