@@ -26,6 +26,19 @@ class FlightTestCase(AbstractTest):
   def setUp(self):
     self.driver.get(self.site_url())
 
+  def test_select_oneway_flight(self):
+    flight_page = FlightPage(self.driver)
+    flight_page.select_trip_type("oneway")
+    flight_page.select_depart_from("Sydney")
+    flight_page.select_arrive_at("New York")
+
+    flight_page.select_depart_day("02")
+    flight_page.select_depart_month("May 2027")
+    flight_page.click_continue
+
+    time.sleep(1)
+
+
   def test_select_return_flight(self):
     flight_page = FlightPage(self.driver)
     flight_page.select_trip_type("return")

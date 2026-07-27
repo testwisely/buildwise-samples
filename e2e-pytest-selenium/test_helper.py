@@ -2,7 +2,6 @@
 import os;
 import sys;
 import time;
-
 import socket;
 import codecs;
 
@@ -13,6 +12,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.remote.command import Command
 
 class TestHelper:
 
@@ -92,16 +92,18 @@ class TestHelper:
     # _url removed from Selenium 4
     # executor_url = cls.driver.command_executor._url
     
+    executor_url = cls.driver.command_executor._client_config.remote_server_addr
     session_id = cls.driver.session_id
 
     if ( len(session_id) > 5):
-      print("[SAVE] session id: " + session_id);
+      cls.puts("[SAVE] session id: " + session_id);
+      cls.puts("[SAVE] executor_url: " + executor_url);
       # cls.puts("session id: " + session_id + ", WDURL: " + executor_url + "|");
       testwise_db_file = cls.get_testwise_db_file()
       if testwise_db_file:
         conn = sqlite3.connect(testwise_db_file)
         c = conn.cursor()
-        c.execute("UPDATE TEST_EXECUTIONS SET WEBDRIVER_SESSION_ID='" + session_id  +  "' WHERE  id = (SELECT MAX(id) FROM TEST_EXECUTIONS)")
+        c.execute("UPDATE TEST_EXECUTIONS SET WEBDRIVER_SESSION_ID='" + session_id  + "', WEBDRIVER_URL='" + executor_url + "' WHERE  id = (SELECT MAX(id) FROM TEST_EXECUTIONS)")
         conn.commit()
         conn.close()
 
@@ -116,26 +118,36 @@ class TestHelper:
       session_id = records[0][0]
       executor_url = records[0][1]
       conn.close();
-      cls.puts("RETRIEVE WDURL: " + executor_url)
+      cls.puts("RETRIEVE WDURL: " + executor_url + " session: " + session_id)
       return cls.attach_to_session(executor_url, session_id)
     else:
       return None
 
+
+  # TODO: not fully working, seem tried to attaching ...
   @classmethod
-  def attach_to_session(self, executor_url, session_id):
+  def attach_to_session(cls, executor_url, session_id):
     original_execute = WebDriver.execute
     def new_command_execute(self, command, params=None):
-      if command == "newSession":
-        # Mock the response
-        return {'success': 0, 'value': None, 'sessionId': session_id}
-      else:
+        if command == Command.NEW_SESSION:
+            return {
+                "value": {
+                    "sessionId": session_id,
+                    "capabilities": {}
+                }
+            }
         return original_execute(self, command, params)
-    # Patch the function before creating the driver object
+
     WebDriver.execute = new_command_execute
-    driver = webdriver.Remote(command_executor=executor_url, desired_capabilities={})
+    try:
+        driver = webdriver.Remote(
+            command_executor= executor_url,
+            options=webdriver.ChromeOptions()
+        )
+    finally:
+        WebDriver.execute = original_execute
+
     driver.session_id = session_id
-    # Replace the patched function with original function
-    WebDriver.execute = original_execute
     return driver
 
   @classmethod
