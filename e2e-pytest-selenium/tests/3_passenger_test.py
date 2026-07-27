@@ -1,23 +1,16 @@
-import unittest
-import xmlrunner
-import time
-import datetime
-import sys
 import os
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
+import sys
+import time
+
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
 from test_helper import TestHelper
 
-from pages.login_page import LoginPage
-from pages.flight_page import FlightPage
-from pages.passenger_page import PassengerPage
+from abstract_test import AbstractTest
+from pages import *
 
-class PassengerTestCase(unittest.TestCase, TestHelper):
+class PassengerTestCase(AbstractTest):
 
   @classmethod
   def setUpClass(cls):
@@ -32,18 +25,13 @@ class PassengerTestCase(unittest.TestCase, TestHelper):
     login_page.enter_password("test$W1se")
     login_page.click_sign_in()
 
-  @classmethod
-  def tearDownClass(cls):
-    time.sleep(1)
-    cls.driver.quit()
-
   def test_enter_passenger_details(self):
     flight_page = FlightPage(self.driver)
     flight_page.select_trip_type("oneway")
     flight_page.select_depart_from("New York")
     flight_page.select_arrive_at("Sydney")
     flight_page.select_depart_day("04")
-    flight_page.select_depart_month("March 2025")
+    flight_page.select_depart_month("March 2027")
     flight_page.click_continue()
 
     time.sleep(1)
@@ -53,7 +41,7 @@ class PassengerTestCase(unittest.TestCase, TestHelper):
     passenger_page.click_next()
 
     # purposely assertion failure if Wendy
-    self.assertEqual("Bob Tester", self.driver.find_element_by_name("holder_name").get_attribute("value"))
+    self.assertEqual("Bob Tester", self.driver.find_element(By.NAME, "holder_name").get_attribute("value"))
 
 # if __name__ == '__main__':
 #     unittest.main(

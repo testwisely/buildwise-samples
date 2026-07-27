@@ -1,21 +1,15 @@
-import unittest
-import xmlrunner
-import time
-import datetime
-import sys
 import os
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
+import sys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 # load modules from parent dir, pages will be referred from there too.
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
-from test_helper import TestHelper
-from pages.login_page import LoginPage
+#from pages.login_page import LoginPage
 
-class LoginTestCase(unittest.TestCase, TestHelper):
+from abstract_test import AbstractTest
+from pages import *
+
+class LoginTestCase(AbstractTest):
 
   @classmethod
   def setUpClass(cls):
@@ -24,10 +18,11 @@ class LoginTestCase(unittest.TestCase, TestHelper):
       cls.driver.set_window_size(1280, 720)
       cls.driver.set_window_position(30, 78)
 
-      executor_url = cls.driver.command_executor._url
+      # TODO
+      # executor_url = cls.driver.command_executor._url
       session_id = cls.driver.session_id
-      print("WDURL: " + executor_url + ", session id: " + session_id);
-      cls.puts("session id: " + session_id + ", WDURL: " + executor_url + "|");
+      # print("WDURL: " + executor_url + ", session id: " + session_id);
+      cls.puts("session id: " + session_id) # ", WDURL: " + executor_url + "|");
 
 
   @classmethod

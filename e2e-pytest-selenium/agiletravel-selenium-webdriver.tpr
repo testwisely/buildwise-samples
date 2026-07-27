@@ -1,5 +1,5 @@
 <project>
-    <name>agiletravel-selenium-webdriver.tpr</name>
+    <name>selenium-python</name>
     <app_type>WinApp</app_type>
     <default_browser>Chrome</default_browser>
     <test_framework>Selenium</test_framework>

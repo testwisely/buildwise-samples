@@ -1,22 +1,14 @@
-import unittest
-import xmlrunner
-import time
-import datetime
-import sys
 import os
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
+import sys
+import time
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
 from test_helper import TestHelper
+from abstract_test import AbstractTest
+from pages import *
 
-from pages.login_page import LoginPage
-from pages.flight_page import FlightPage
-
-class FlightTestCase(unittest.TestCase, TestHelper):
+class FlightTestCase(AbstractTest):
 
   @classmethod
   def setUpClass(cls):
@@ -31,11 +23,6 @@ class FlightTestCase(unittest.TestCase, TestHelper):
     login_page.enter_password("test$W1se")
     login_page.click_sign_in()
 
-  @classmethod
-  def tearDownClass(cls):
-    time.sleep(1)
-    cls.driver.quit()
-
   def setUp(self):
     self.driver.get(self.site_url())
 
@@ -46,9 +33,9 @@ class FlightTestCase(unittest.TestCase, TestHelper):
     flight_page.select_arrive_at("New York")
 
     flight_page.select_depart_day("02")
-    flight_page.select_depart_month("May 2025")
+    flight_page.select_depart_month("May 2027")
     flight_page.select_return_day("04")
-    flight_page.select_return_month("June 2025")
+    flight_page.select_return_month("June 2027")
     flight_page.click_continue
 
     time.sleep(1)

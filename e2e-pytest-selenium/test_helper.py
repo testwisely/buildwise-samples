@@ -14,9 +14,6 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 
-#sys.path.insert(0, '../pages')
-#from login_page import LoginPage
-
 class TestHelper:
 
   # A helper function to return webdriver instance
@@ -44,6 +41,8 @@ class TestHelper:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_experimental_option("detach", True)
     # chrome_options.add_option("detach", True);
+    
+    chrome_options.add_experimental_option("prefs", {"profile.password_manager_leak_detection": False } )
     
     # if Selenium unable to detect Chrome browser in default location
     # chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
@@ -90,17 +89,19 @@ class TestHelper:
 
   @classmethod
   def save_driver_session(cls):
-    executor_url = cls.driver.command_executor._url
+    # _url removed from Selenium 4
+    # executor_url = cls.driver.command_executor._url
+    
     session_id = cls.driver.session_id
 
-    if (len(executor_url) > 5 and len(session_id) > 5):
-      print("[SAVE] WDURL: " + executor_url + ", session id: " + session_id);
+    if ( len(session_id) > 5):
+      print("[SAVE] session id: " + session_id);
       # cls.puts("session id: " + session_id + ", WDURL: " + executor_url + "|");
       testwise_db_file = cls.get_testwise_db_file()
       if testwise_db_file:
         conn = sqlite3.connect(testwise_db_file)
         c = conn.cursor()
-        c.execute("UPDATE TEST_EXECUTIONS SET WEBDRIVER_SESSION_ID='" + session_id  + "', WEBDRIVER_URL='" + executor_url + "' WHERE  id = (SELECT MAX(id) FROM TEST_EXECUTIONS)")
+        c.execute("UPDATE TEST_EXECUTIONS SET WEBDRIVER_SESSION_ID='" + session_id  +  "' WHERE  id = (SELECT MAX(id) FROM TEST_EXECUTIONS)")
         conn.commit()
         conn.close()
 
@@ -173,6 +174,6 @@ class TestHelper:
   ## user defined functions
   # 
   def login(self, username, password):
-    self.driver.find_element_by_id("username").send_keys(username)
-    self.driver.find_element_by_id("password").send_keys(password)
-    self.driver.find_element_by_xpath("//input[@value='Sign in']").click()
+    self.driver.find_element(By.ID, "username").send_keys(username)
+    self.driver.find_element(By.ID, "password").send_keys(password)
+    self.driver.find_element(By.XPATH, "//input[@value='Sign in']").click()
