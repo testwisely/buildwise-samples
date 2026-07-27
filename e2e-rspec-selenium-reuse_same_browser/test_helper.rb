@@ -152,10 +152,6 @@ module TestHelper
   def debugging?
     return ENV["RUN_IN_TESTWISE"].to_s == "true" && ENV["TESTWISE_RUNNING_AS"] == "test_case"
   end
-  
-  def file_path(file_name)
-    return "#{File.dirname(__FILE__)}/#{file_name}"
-  end
 
   
   ## 

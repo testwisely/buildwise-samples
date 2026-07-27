@@ -107,6 +107,10 @@ module AgilewayUtils
     end
   end
   
+  def file_path(file_name)
+    return "#{File.dirname(__FILE__)}/#{file_name}"
+  end
+  
   def get_browser_debugging_port
     rand(10001..19999)
   end

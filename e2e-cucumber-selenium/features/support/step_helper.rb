@@ -44,7 +44,7 @@ module StepHelper
   end
   
   def sign_off
-    driver.find_element(:link_text, "Sign off").click
+    driver.find_element(:partial_link_text, "Sign off").click
   end
   
 end

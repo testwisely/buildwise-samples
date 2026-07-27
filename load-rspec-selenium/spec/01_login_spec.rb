@@ -26,7 +26,7 @@ describe "User Login" do
     login_page.login("agileway", "test$W1se")  
     # selenium does not have browser.text yet
     try_for(3) {  expect(driver.page_source).to include("Welcome")}
-    driver.find_element(:link_text, "Sign off").click
+    driver.find_element(:partial_link_text, "Sign off").click
     puts "[stdout] Signed out"
   end
 

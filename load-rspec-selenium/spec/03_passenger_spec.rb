@@ -15,7 +15,7 @@ describe "Passenger" do
   end
 
   after(:all) do
-    fail_safe { driver.find_element(:link_text, "Sign off").click } unless debugging?
+    fail_safe { driver.find_element(:partial_link_text, "Sign off").click } unless debugging?
     driver.quit unless debugging?
   end
 

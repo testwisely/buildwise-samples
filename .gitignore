@@ -58,3 +58,4 @@ build-iPhoneSimulator/
 !**/__pycache__/
 node_modules
 **/node_modules
+e2e-rspec-selenium/archive/*

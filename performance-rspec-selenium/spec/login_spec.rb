@@ -23,7 +23,7 @@ describe "Load - User Authentication" do
         driver.find_element(:id, "password").send_keys("test$W1se")
         log_time('Login') { driver.find_element(:name, "commit").click }
         expect(driver.find_element(:id, "flash_notice").text).to eq("Signed in!")
-        log_time('Sign off') { driver.find_element(:link_text, "Sign off").click }
+        log_time('Sign off') { driver.find_element(:partial_link_text, "Sign off").click }
       end
     end
 
