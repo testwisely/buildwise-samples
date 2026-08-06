@@ -1,44 +1,36 @@
-import xmlrunner
-import time
-import datetime
-import sys
-import os
-import re
 from playwright.sync_api import Page, expect
-import pytest
+import time
 
-# https://playwright.dev/python/docs/test-runners
-
-# load modules from parent dir, pages will be referred from there too.
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
+from abstract_test import AbstractTest
 from test_helper import TestHelper
-from pages.login_page import LoginPage
+from pages import *
 
-@pytest.fixture(autouse=True)
-def run_round_test(page: Page):
-    page.goto(TestHelper.site_url())
-    yield
-    page.close
+class TestLogin(AbstractTest):
+  
+  # before(:all)
+  @classmethod
+  def setup_class(cls):
+    super().setup_class()
+  
+  # before(:each)
+  def setup_method(self):
+    self.driver.goto(TestHelper.site_url())
 
-@pytest.mark.only_browser("chromium")
-def test_sign_in_failed(page: Page):
-    login_page = LoginPage(page)
-    login_page.enter_username("agileway")
-    login_page.enter_password("badpass")
-    login_page.click_sign_in()
-    # using page_source for assertion
-    assert "Invalid email or password" in page.content();
-    # expect(page.locator("//body")).to_have_text("Invalid email or password")
-    # self.assertIn("Demo Fail this test case", self.driver.find_element_by_tag_name("body").text)
+  def test_121_user_can_sign_in_ok(self):
+    page = self.page
+    self.sign_in("agileway", "test$W1se")
+    expect(page.locator("body")).to_contain_text("Welcome agileway")
+    self.sign_out()
+    time.sleep(0.5)
+    
+  def test_122_user_failed_to_sign_in_due_to_invalid_password(self):
+    page = self.page
+    self.sign_in("agileway", "badpass")
+    expect(page.locator("body")).to_contain_text(
+    "Invalid email or password")
 
-def test_sign_in_ok(page: Page):
-    login_page = LoginPage(page)
-    login_page.enter_username("agileway")
-    login_page.enter_password("test$W1se")
-    login_page.click_sign_in()
-    assert page.text_content("div#flash_notice") == "Signed in!"
-
-# if __name__ == '__main__':
-#     unittest.main(
-#         testRunner=xmlrunner.XMLTestRunner(output='reports'),
-#         failfast=False, buffer=False, catchbreak=False)
+  def test_123_admin_user_can_sign(self):
+    page = self.page
+    self.sign_in("admin", "secret")
+    expect(page.get_by_role("link", name="Administration")).to_be_visible()
+    self.sign_out()

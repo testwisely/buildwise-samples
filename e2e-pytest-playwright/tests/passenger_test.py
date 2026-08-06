@@ -1,49 +1,34 @@
-import xmlrunner
-import time
-import datetime
-import sys
-import os
-import re
 from playwright.sync_api import Page, expect
-import pytest
 
-
-# load modules from parent dir, pages will be referred from there too.
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
+from abstract_test import AbstractTest
 from test_helper import TestHelper
-from pages.login_page import LoginPage
-from pages.flight_page import FlightPage
-from pages.passenger_page import PassengerPage
+from pages import *
 
-@pytest.fixture(autouse=True)
-def run_round_test(page: Page):
-    page.goto(TestHelper.site_url())
+class TestPassenger(AbstractTest):
+
+  # before(:all)
+  @classmethod
+  def setup_class(cls):
+    super().setup_class()
+    cls.page.goto(TestHelper.site_url())
     
-    login_page = LoginPage(page)
-    login_page.enter_username("agileway")
-    login_page.enter_password("test$W1se")
-    login_page.click_sign_in()
-    
-    flight_page = FlightPage(page)
-    flight_page.select_trip_type("oneway")
+  def test_can_enter_passenger_details(self):
+    page = self.page
+
+    self.sign_in("agileway", "test$W1se")
+
+    flight_page = FlightPage(self.driver) # or self.page
+    flight_page.select_oneway_trip()
     flight_page.select_depart_from("Sydney")
     flight_page.select_arrive_at("New York")
-
-    flight_page.select_depart_day("02")
-    flight_page.select_depart_month("May 2024")
+    flight_page.select_departure_day("02")
+    flight_page.select_departure_month("May 2026")
     flight_page.click_continue()
-    
-    yield    
-    page.close
 
-def test_enter_passenger_details(page: Page):
-    passenger_page = PassengerPage(page)
+    passenger_page = PassengerPage(self.page)
     passenger_page.enter_first_name("Bob")
     passenger_page.enter_last_name("Tester")
     passenger_page.click_next()
 
-    # purposely assertion failure, if set
-    holder_name = page.locator("//input[@name='holder_name']").get_attribute("value")
-    assert "Bob Tester" ==  holder_name
-
-
+    # Verify holder name
+    expect(page.locator("input[name='holder_name']")).to_have_value( "Bob Tester")

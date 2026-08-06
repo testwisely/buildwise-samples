@@ -1,4 +1,4 @@
-# a Mixin that include in every test case
+# a Mixin alike that include in every test case
 import os;
 import sys;
 import time;
@@ -6,68 +6,43 @@ import time;
 import socket;
 import codecs;
 
-import sqlite3;
-
 from playwright.sync_api import Playwright, sync_playwright, expect
-
-#sys.path.insert(0, '../pages')
-#from login_page import LoginPage
+from playwright.sync_api import Page
 
 class TestHelper:
 
-  # A helper function to return webdriver instance
-  #  In other languages, take browser type as parameter, but seem no the case for Python
-  @classmethod
-  def open_browser(cls):
-    env_browser = os.environ.get("BROWSER")
-    if env_browser == "firefox":
-      cls.driver = webdriver.Firefox()
-    elif env_browser == "safari":
-      cls.driver = webdriver.Safari()
-    elif env_browser == "edge":
-      cls.driver = webdriver.Edge()
-    else:
-      cls.browser = playwright.chromium.launch(headless=False)
-    
-    # save driver session for later to attach it, for much easier debugging test steps
-    cls.save_driver_session()
-    return cls.driver
-     
-  @classmethod
-  def browser_chrome_options(cls):
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_experimental_option("detach", True)
-    # chrome_options.add_option("detach", True);
-    
-    # if Selenium unable to detect Chrome browser in default location
-    # chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-    return chrome_options;
-
+  # define the base url for target web site
+  
   @classmethod
   def site_url(cls):
     the_site_url = os.environ.get("BASE_URL");
     if not the_site_url:
       the_site_url = "https://travel.agileway.net"
     return the_site_url;
+  
 
-  def wait_for_ajax_complete(self, max_seconds):
-    count = 0
-    while (count < max_seconds):
-      count += 1
-      is_ajax_complete = self.driver.execute_script("return window.jQuery != undefined && jQuery.active == 0");
-      if is_ajax_complete:
-        return
-      else:
-        time.sleep(1)
-    raise Exception("Timed out waiting for AJAX call after %i seconds" % max_seconds)
+  # NOTE: note set up for Playwright yet
+    
+  # A helper function to return webdriver instance
+  #  In other languages, take browser type as parameter, but seem no the case for Python
+  @classmethod
+  def open_browser(cls):
+    env_browser = os.environ.get("TARGET_BROWSER")
+    # cls.puts(env_browser)
+    headless = False
+    if env_browser == "firefox":
+      cls.browser = cls.playwright.firefox.launch(headless=headless)
+    elif env_browser == "safari":
+      cls.browser = cls.playwright.webkit.launch(headless=headless)
+    else:
+      cls.browser = cls.playwright.chromium.launch(headless=headless)
+    
+    # save driver session for later to attach it, for much easier debugging test steps
+    # TODO cls.save_driver_session()
+    return cls.browser
 
   @classmethod
   def is_debugging(cls):
-    # special case:
-    # on Windows, not calling driver.quit hangs execution in TestWise, fine on macOS
-    if sys.platform.startswith('win'):
-      return False;
-
     if "RUN_IN_TESTWISE" in os.environ and "TESTWISE_RUNNING_AS" in os.environ:
       return os.environ['RUN_IN_TESTWISE'] == "true" and os.environ["TESTWISE_RUNNING_AS"] == "test_case"
     else:
@@ -81,55 +56,6 @@ class TestHelper:
       return  os.environ["TESTWISE_DB_FILE"]
     else:
       return None
-
-  @classmethod
-  def save_driver_session(cls):
-    executor_url = cls.driver.command_executor._url
-    session_id = cls.driver.session_id
-
-    if (len(executor_url) > 5 and len(session_id) > 5):
-      print("[SAVE] WDURL: " + executor_url + ", session id: " + session_id);
-      # cls.puts("session id: " + session_id + ", WDURL: " + executor_url + "|");
-      testwise_db_file = cls.get_testwise_db_file()
-      if testwise_db_file:
-        conn = sqlite3.connect(testwise_db_file)
-        c = conn.cursor()
-        c.execute("UPDATE TEST_EXECUTIONS SET WEBDRIVER_SESSION_ID='" + session_id  + "', WEBDRIVER_URL='" + executor_url + "' WHERE  id = (SELECT MAX(id) FROM TEST_EXECUTIONS)")
-        conn.commit()
-        conn.close()
-
-  @classmethod
-  def reuse_current_browser(cls):
-    testwise_db_file = cls.get_testwise_db_file()
-    if testwise_db_file:
-      conn = sqlite3.connect(testwise_db_file)
-      cursor = conn.cursor()
-      cursor.execute('SELECT WEBDRIVER_SESSION_ID, WEBDRIVER_URL FROM TEST_EXECUTIONS WHERE id = (SELECT MAX(id) FROM TEST_EXECUTIONS)')
-      records = cursor.fetchall()
-      session_id = records[0][0]
-      executor_url = records[0][1]
-      conn.close();
-      cls.puts("RETRIEVE WDURL: " + executor_url)
-      return cls.attach_to_session(executor_url, session_id)
-    else:
-      return None
-
-  @classmethod
-  def attach_to_session(self, executor_url, session_id):
-    original_execute = WebDriver.execute
-    def new_command_execute(self, command, params=None):
-      if command == "newSession":
-        # Mock the response
-        return {'success': 0, 'value': None, 'sessionId': session_id}
-      else:
-        return original_execute(self, command, params)
-    # Patch the function before creating the driver object
-    WebDriver.execute = new_command_execute
-    driver = webdriver.Remote(command_executor=executor_url, desired_capabilities={})
-    driver.session_id = session_id
-    # Replace the patched function with original function
-    WebDriver.execute = original_execute
-    return driver
 
   @classmethod
   def puts(cls, message):
@@ -160,13 +86,30 @@ class TestHelper:
     except ConnectionRefusedError:
       print("Unable to connect to TestWise")
 
+  ## commonly used generic functions that can be used many test scripts.
+  #  e.g. assert "2026-06-04 New York to Sydney" in self.page_text()
+  # 
+  
   def page_text(self):
-    return self.driver.find_element_by_tag_name("body").text;
+    return self.page.locator("body").inner_text();
+
+  def page_html(self):
+    return self.page.content()
 
 
+  # Invoking functions work both ways:
+  # * TestHelper.sign_in(cls, "agileway", "test$W1se")
+  # * self.sign_in("agileway", "test$W1se")
+        
   ## user defined functions
   # 
-  def login(self, username, password):
-    self.driver.find_element_by_id("username").send_keys(username)
-    self.driver.find_element_by_id("password").send_keys(password)
-    self.driver.find_element_by_xpath("//input[@value='Sign in']").click()
+  # examples
+  def sign_in(self, username, password):   
+    page = self.page
+    page.locator("#username").fill(username)
+    page.locator("#password").fill(password)
+    page.locator("xpath=//input[@value='Sign in']").click()
+
+  def sign_out(self):
+    page = self.page 
+    page.get_by_role("link", name="Sign off", exact=False).click()

@@ -3,23 +3,17 @@
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/__init__.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/1_login_test.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/3_passenger_test.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/passenger_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/login_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/flight_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/abstract_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/payment_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/2_flight_test.py"/>
     </opened_files>
     <recent_files>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/2_flight_test.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/payment_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/abstract_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/flight_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/login_page.py"/>
-        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/passenger_page.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/3_passenger_test.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/1_login_test.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/__init__.py"/>
+        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/tests/2_flight_test.py"/>
+        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/payment_page.py"/>
+        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/abstract_page.py"/>
+        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/flight_page.py"/>
+        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/login_page.py"/>
+        <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/pages/passenger_page.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/test_helper.py"/>
         <entry name="/Users/courtney/work/projects/buildwise-samples/e2e-pytest-selenium/abstract_test.py"/>
         <entry name="/Users/zhimin/work/projects/agiletravel-ui-tests/selenium-webdriver-python-unittest/tests/2_flight_test.py"/>

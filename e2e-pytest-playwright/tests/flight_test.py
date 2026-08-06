@@ -1,51 +1,44 @@
-import xmlrunner
-import time
-import datetime
-import sys
-import os
-import re
 from playwright.sync_api import Page, expect
-import pytest
 
-
-# load modules from parent dir, pages will be referred from there too.
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)) + "/../")
+from abstract_test import AbstractTest
 from test_helper import TestHelper
-from pages.login_page import LoginPage
-from pages.flight_page import FlightPage
+from pages import *
 
-@pytest.fixture(autouse=True)
-def run_round_test(page: Page):
-    page.goto(TestHelper.site_url())
-    login_page = LoginPage(page)
-    login_page.enter_username("agileway")
-    login_page.enter_password("test$W1se")
-    login_page.click_sign_in()
-    
-    yield
-    
-    page.close
+class TestFlights(AbstractTest):
 
-def test_oneway_flight(page: Page):
-    flight_page = FlightPage(page)
-    flight_page.select_trip_type("oneway")
+  # before(:all)
+  @classmethod
+  def setup_class(cls):
+    super().setup_class()
+    cls.page.goto(TestHelper.site_url())
+    TestHelper.sign_in(cls, "agileway", "test$W1se")
+    
+  # before(:each)
+  def setup_method(self):
+    self.page.goto(TestHelper.site_url() + "/flights/start")
+
+  def test_one_way_trip(self):
+    page = self.page
+    flight_page = FlightPage(self.page)
+    flight_page.select_oneway_trip()
     flight_page.select_depart_from("Sydney")
     flight_page.select_arrive_at("New York")
-
-    flight_page.select_depart_day("02")
-    flight_page.select_depart_month("May 2024")
+    flight_page.select_departure_day("02")
+    flight_page.select_departure_month("May 2026")
     flight_page.click_continue()
-    time.sleep(1)
+    expect(page.locator("body")).to_contain_text("2026-05-02 Sydney to New York")
+    
 
-
-def test_return_flight(page: Page):
-    flight_page = FlightPage(page)
-    flight_page.select_trip_type("return")
+  def test_return_trip(self):
+    page = self.page
+    flight_page = FlightPage(self.page)
+    flight_page.select_return_trip()
     flight_page.select_depart_from("Sydney")
     flight_page.select_arrive_at("New York")
-
-    flight_page.select_depart_day("02")
-    flight_page.select_depart_month("May 2024")
+    flight_page.select_departure_day("02")
+    flight_page.select_departure_month("May 2026")
+    flight_page.select_return_day("04")
+    flight_page.select_return_month("June 2026")
     flight_page.click_continue()
-    time.sleep(1)
-
+    expect(page.locator("body")).to_contain_text("2026-05-02 Sydney to New York")
+    assert "2026-06-04 New York to Sydney" in self.page_text()

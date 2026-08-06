@@ -2,11 +2,13 @@ from pages.abstract_page import AbstractPage
 
 class PassengerPage(AbstractPage):
 
-  def enter_first_name(self, passenger_first_name):
-    self.driver.locator("[name='passengerFirstName']").fill(passenger_first_name)
+  def enter_first_name(self, first_name):
+    self.page.locator("input[name='passengerFirstName']").fill(first_name)
 
-  def enter_last_name(self, passenger_last_name):
-    self.driver.locator("[name='passengerLastName']").fill(passenger_last_name)
+  def enter_last_name(self, last_name):
+    self.page.locator("input[name='passengerLastName']").fill(last_name)
 
   def click_next(self):
-    self.driver.locator("//input[@value='Next']").click() 
+    self.page.locator("xpath=//input[@value='Next']").click()
+
+
