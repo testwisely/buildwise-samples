@@ -16,20 +16,20 @@ class TestLogin(AbstractTest):
   def setup_method(self):
     self.driver.goto(TestHelper.site_url())
 
-  def test_121_user_can_sign_in_ok(self):
+  def test_user_can_sign_in_ok(self):
     page = self.page
     self.sign_in("agileway", "test$W1se")
     expect(page.locator("body")).to_contain_text("Welcome agileway")
     self.sign_out()
     time.sleep(0.5)
     
-  def test_122_user_failed_to_sign_in_due_to_invalid_password(self):
+  def test_user_failed_to_sign_in_due_to_invalid_password(self):
     page = self.page
     self.sign_in("agileway", "badpass")
     expect(page.locator("body")).to_contain_text(
     "Invalid email or password")
 
-  def test_123_admin_user_can_sign(self):
+  def test_admin_user_can_sign(self):
     page = self.page
     self.sign_in("admin", "secret")
     expect(page.get_by_role("link", name="Administration")).to_be_visible()
