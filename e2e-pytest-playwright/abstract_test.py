@@ -22,23 +22,29 @@ class AbstractTest(TestHelper):
   def setup_class(cls):
     # before(:all)
     global _playwright
-    print("Starting a new test...", cls.__name__)
+    print("Staring a new test...", cls.__name__)
     
     if _playwright is None:
       _playwright = sync_playwright().start()
 
     cls.playwright = _playwright
 
-    cls.browser = cls.open_browser()
-    #if browser_name == "firefox":
-      #cls.browser = cls.playwright.firefox.launch(headless=headless)
-    #elif browser_name == "webkit":
-      #cls.browser = cls.playwright.webkit.launch(headless=headless)
-    #else:
-      #print("Starting a new Chromium browser")
-      #cls.browser = cls.playwright.chromium.launch(headless=headless)
+    cls.browser = cls.open_browser() # defined in TestHelper
 
     cls.context = cls.browser.new_context()
+    
+    # for view tracer
+    if os.environ.get("PLAYWRIGHT_TRACING") == "on":
+      print("Playwright tracing enabled")
+
+      os.makedirs("test-results", exist_ok=True)
+
+      cls.context.tracing.start(
+        screenshots=True,
+        snapshots=True,
+        sources=True
+      )
+    
     cls.page = cls.context.new_page()
 
   # after(:all)
@@ -48,7 +54,11 @@ class AbstractTest(TestHelper):
     if TestHelper.is_debugging():
       cls.puts("Test execution completes, keep browser open for inspection")
       cls.page.pause();
-      
+    
+    # for view tracer
+    if os.environ.get("PLAYWRIGHT_TRACING") == "on":
+      cls.context.tracing.stop(path="test-results/trace.zip")
+    
     cls.context.close()
     cls.browser.close()
     
